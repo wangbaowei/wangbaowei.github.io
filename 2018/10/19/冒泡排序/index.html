@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SpringMvc,Velocity," />
+  <meta name="keywords" content="冒泡排序," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="VelocityVelocity是一款基于java的模板引擎。相比于jsp而言，它被使用的人可能并不多，但的确也是一款出色的模板引擎。jsp中允许出现java代码，而Velocity不允许，也是为了方便维护模板，严格遵从MVC设计原则。模板只负责页面的规划，渲染页面。当然Velocity的定位不仅仅在web页面的开发上使得前后端开发者可以更明确的职责分离，它还可以应用在其它涉及模板应用的领域，比如">
-<meta name="keywords" content="SpringMvc,Velocity">
+<meta name="description" content="原理：思路：总共需要多少轮冒泡？需要n-1次。冒泡：每一轮冒泡将会在剩下的（n-i）个元素中产生一个最大或者最少的值，第一轮i等于0，第二轮i等于1…而每一轮的冒泡需要比较(n-i-1)次即可确定一个极值，所以(n-i-1)就是一轮冒泡要比较的次数 所以具体第一轮参与冒泡的元素个数是与元素总量n有递减关系，并且参数冒泡的次数也是固定的为n-1，这种明显可量化的问题可以用一个很典型的二维嵌套循环来做">
+<meta name="keywords" content="冒泡排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring mvc中应用velocity">
-<meta property="og:url" content="https://wangbaowei.github.io/2018/10/14/Mvc_Velocity/index.html">
+<meta property="og:title" content="冒泡排序">
+<meta property="og:url" content="https://wangbaowei.github.io/2018/10/19/冒泡排序/index.html">
 <meta property="og:site_name" content="争夕的个人网站">
-<meta property="og:description" content="VelocityVelocity是一款基于java的模板引擎。相比于jsp而言，它被使用的人可能并不多，但的确也是一款出色的模板引擎。jsp中允许出现java代码，而Velocity不允许，也是为了方便维护模板，严格遵从MVC设计原则。模板只负责页面的规划，渲染页面。当然Velocity的定位不仅仅在web页面的开发上使得前后端开发者可以更明确的职责分离，它还可以应用在其它涉及模板应用的领域，比如">
+<meta property="og:description" content="原理：思路：总共需要多少轮冒泡？需要n-1次。冒泡：每一轮冒泡将会在剩下的（n-i）个元素中产生一个最大或者最少的值，第一轮i等于0，第二轮i等于1…而每一轮的冒泡需要比较(n-i-1)次即可确定一个极值，所以(n-i-1)就是一轮冒泡要比较的次数 所以具体第一轮参与冒泡的元素个数是与元素总量n有递减关系，并且参数冒泡的次数也是固定的为n-1，这种明显可量化的问题可以用一个很典型的二维嵌套循环来做">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T06:19:50.084Z">
+<meta property="og:updated_time" content="2018-10-19T07:58:18.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring mvc中应用velocity">
-<meta name="twitter:description" content="VelocityVelocity是一款基于java的模板引擎。相比于jsp而言，它被使用的人可能并不多，但的确也是一款出色的模板引擎。jsp中允许出现java代码，而Velocity不允许，也是为了方便维护模板，严格遵从MVC设计原则。模板只负责页面的规划，渲染页面。当然Velocity的定位不仅仅在web页面的开发上使得前后端开发者可以更明确的职责分离，它还可以应用在其它涉及模板应用的领域，比如">
+<meta name="twitter:title" content="冒泡排序">
+<meta name="twitter:description" content="原理：思路：总共需要多少轮冒泡？需要n-1次。冒泡：每一轮冒泡将会在剩下的（n-i）个元素中产生一个最大或者最少的值，第一轮i等于0，第二轮i等于1…而每一轮的冒泡需要比较(n-i-1)次即可确定一个极值，所以(n-i-1)就是一轮冒泡要比较的次数 所以具体第一轮参与冒泡的元素个数是与元素总量n有递减关系，并且参数冒泡的次数也是固定的为n-1，这种明显可量化的问题可以用一个很典型的二维嵌套循环来做">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://wangbaowei.github.io/2018/10/14/Mvc_Velocity/"/>
+  <link rel="canonical" href="https://wangbaowei.github.io/2018/10/19/冒泡排序/"/>
 
 
 
 
 
-  <title>spring mvc中应用velocity | 争夕的个人网站</title>
+  <title>冒泡排序 | 争夕的个人网站</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2018/10/14/Mvc_Velocity/">
+    <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2018/10/19/冒泡排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="争夕">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">spring mvc中应用velocity</h1>
+          <h1 class="post-title" itemprop="name headline">冒泡排序</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-14T14:31:08+08:00">
-                2018-10-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T15:56:00+08:00">
+                2018-10-19
               </time>
             
 
@@ -326,8 +326,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/后端/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -363,14 +363,15 @@
       
 
       
-        <h3 id="Velocity"><a href="#Velocity" class="headerlink" title="Velocity"></a>Velocity</h3><p>Velocity是一款基于java的模板引擎。相比于jsp而言，它被使用的人可能并不多，但的确也是一款出色的模板引擎。jsp中允许出现java代码，而Velocity不允许，也是为了方便维护模板，严格遵从MVC设计原则。模板只负责页面的规划，渲染页面。当然Velocity的定位不仅仅在web页面的开发上使得前后端开发者可以更明确的职责分离，它还可以应用在其它涉及模板应用的领域，比如代码生成，SQL生成等等。freemark也是类似于velocity这样一款模板引擎。</p>
-<p>SpringMvc集成Velocity<br>在mvc配置文件中配置velocity引擎，及viewResolver</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"velocityConfig"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.velocity.VelocityConfigurer"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"resourceLoaderPath"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/views/"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span> <span class="attr">value</span>=<span class="string">"classpath:properties/velocity.properties"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"viewResolver"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".html"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cache"</span> <span class="attr">value</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"contentType"</span> <span class="attr">value</span>=<span class="string">"text/html;charset=utf-8"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dateToolAttribute"</span> <span class="attr">value</span>=<span class="string">"date"</span> /&gt;</span><span class="comment">&lt;!--日期函数名称--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"numberToolAttribute"</span> <span class="attr">value</span>=<span class="string">"number"</span> /&gt;</span><span class="comment">&lt;!--数字函数名称--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"layoutUrl"</span> <span class="attr">value</span>=<span class="string">"layout/default.vm"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"toolboxConfigLocation"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/toolbox.xml"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>velocity.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">input.encoding=utf-8</span><br><span class="line">output.encoding=utf-8</span><br><span class="line">velocimacro.library=macro/macro.vm</span><br><span class="line">velocimacro.library.autoreload=true</span><br><span class="line">runtime.log.logsystem.class = org.apache.velocity.runtime.log.Log4JLogChute</span><br><span class="line">userdirective=com.baomidou.framework.velocity.directive.BlockDirective,com.baomidou.framework.velocity.directive.OverrideDirective,com.baomidou.framework.velocity.directive.ExtendsDirective</span><br><span class="line">#file.resource.loader.cache = true</span><br></pre></td></tr></table></figure>
-<p>velocimacro.library配置用户自定义的宏<br>userdirective配置用户自定义的指令<br>resourceLoaderPath配置velocity的模板文件位置</p>
-<h3 id="Velocity特色"><a href="#Velocity特色" class="headerlink" title="Velocity特色"></a>Velocity特色</h3><p>velocity的核心是模板引擎、数据上下文，灵活的表达式、控制渲染的指令、宏<br>通过表达式我们可以取用context数据<br>通过基本指令set、if、parset、include、foreach等等，我们可以定义变量、模块化模板、动态渲染页面<br>通过使用自定义指令，我们可以实现一些继承特性<br>通过使用宏或者spring内置宏，我们可以灵活复用渲染逻辑、结合mvc对接web Model</p>
-<p><strong><em>关于Velocity，我们需要明白它在web领域主要是应用在后端视图解析渲染，类似于jsp。在模板中的js，css，html它并不会干涉，而涉及vtl的表达式，它会进行渲染。当服务器把VTL渲染后HTML推送到前端浏览器时，这时js，css，html才会起作用，浏览器会运行js，渲染界面，呈现给用户UI。</em></strong></p>
+        <p><strong>原理：</strong><br><strong>思路</strong>：总共需要多少轮冒泡？需要n-1次。<br><strong>冒泡</strong>：每一轮冒泡将会在剩下的（n-i）个元素中产生一个最大或者最少的值，<br>第一轮i等于0，第二轮i等于1…<br>而每一轮的冒泡需要比较(n-i-1)次即可确定一个极值，所以(n-i-1)就是一轮冒泡要比较的次数</p>
+<p>所以具体第一轮参与冒泡的元素个数是与元素总量n有递减关系，并且参数冒泡的次数也是固定的为n-1，这种明显可量化的问题可以用一个很典型的二维嵌套循环来做控制。</p>
+<p>实现:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSortTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ints = &#123;<span class="number">45</span>, <span class="number">67</span>, <span class="number">32</span>, <span class="number">90</span>, <span class="number">59</span>, <span class="number">12</span>, <span class="number">70</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> n = ints.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (ints[j] &gt; ints[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = ints[j];</span><br><span class="line">                    ints[j] = ints[j + <span class="number">1</span>];</span><br><span class="line">                    ints[j + <span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(ints));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>改进：</strong><br>改进是为也提高冒泡排序的效率，可从两点出发：</p>
+<p>1。减少每轮冒泡比较的元素个数，我们可以记下第一轮冒泡最后一次交换（j与j+1的交换）的下标j，而大于等于这个下标的元素都是已经排序好的。<br>如何证明是排序好的？反推法：如果不是排序好的，证明前面有元素比后面大，而这些元素都是经过冒泡的，如果有比后面大的就一定会冒泡到后面，那么最后一次交换下标为j是不成立的，因为这会比j大。<br>这个时候比较次数n-i-1可以用lastExchangeIndex代替</p>
+<p>2。每一轮冒泡记下是否有元素交换，如果没有则可以证明所有的元素已经是有序的，这个时候直接终止外层循环</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSortTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ints = &#123;<span class="number">45</span>, <span class="number">67</span>, <span class="number">32</span>, <span class="number">90</span>, <span class="number">59</span>, <span class="number">12</span>, <span class="number">70</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> n = ints.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sortBoard = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> lastExchangeIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">boolean</span> isSorted = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; sortBoard; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (ints[j] &gt; ints[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = ints[j];</span><br><span class="line">                    ints[j] = ints[j + <span class="number">1</span>];</span><br><span class="line">                    ints[j + <span class="number">1</span>] = temp;</span><br><span class="line">                    isSorted = <span class="keyword">false</span>;</span><br><span class="line">                    lastExchangeIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isSorted) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            sortBoard = lastExchangeIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(ints));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -388,9 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SpringMvc/" rel="tag"># SpringMvc</a>
-          
-            <a href="/tags/Velocity/" rel="tag"># Velocity</a>
+            <a href="/tags/冒泡排序/" rel="tag"># 冒泡排序</a>
           
         </div>
       
@@ -403,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/05/Java_Version_Compatibility/" rel="next" title="Java版本兼容问题">
-                <i class="fa fa-chevron-left"></i> Java版本兼容问题
+              <a href="/2018/10/14/Mvc_Velocity/" rel="next" title="spring mvc中应用velocity">
+                <i class="fa fa-chevron-left"></i> spring mvc中应用velocity
               </a>
             
           </div>
@@ -412,10 +411,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/19/冒泡排序/" rel="prev" title="冒泡排序">
-                冒泡排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,17 +467,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -558,22 +544,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Velocity"><span class="nav-number">1.</span> <span class="nav-text">Velocity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Velocity特色"><span class="nav-number">2.</span> <span class="nav-text">Velocity特色</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

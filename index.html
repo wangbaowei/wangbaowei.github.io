@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans,en,default">
+<html class="theme-next mist use-motion" lang="zh-Hans,en,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -93,7 +93,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -245,6 +245,167 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2018/10/19/冒泡排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="争夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="争夕的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/19/冒泡排序/" itemprop="url">冒泡排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T15:56:00+08:00">
+                2018-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>原理：</strong><br><strong>思路</strong>：总共需要多少轮冒泡？需要n-1次。<br><strong>冒泡</strong>：每一轮冒泡将会在剩下的（n-i）个元素中产生一个最大或者最少的值，<br>第一轮i等于0，第二轮i等于1…<br>而每一轮的冒泡需要比较(n-i-1)次即可确定一个极值，所以(n-i-1)就是一轮冒泡要比较的次数</p>
+<p>所以具体第一轮参与冒泡的元素个数是与元素总量n有递减关系，并且参数冒泡的次数也是固定的为n-1，这种明显可量化的问题可以用一个很典型的二维嵌套循环来做控制。</p>
+<p>实现:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSortTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ints = &#123;<span class="number">45</span>, <span class="number">67</span>, <span class="number">32</span>, <span class="number">90</span>, <span class="number">59</span>, <span class="number">12</span>, <span class="number">70</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> n = ints.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (ints[j] &gt; ints[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = ints[j];</span><br><span class="line">                    ints[j] = ints[j + <span class="number">1</span>];</span><br><span class="line">                    ints[j + <span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(ints));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>改进：</strong><br>改进是为也提高冒泡排序的效率，可从两点出发：</p>
+<p>1。减少每轮冒泡比较的元素个数，我们可以记下第一轮冒泡最后一次交换（j与j+1的交换）的下标j，而大于等于这个下标的元素都是已经排序好的。<br>如何证明是排序好的？反推法：如果不是排序好的，证明前面有元素比后面大，而这些元素都是经过冒泡的，如果有比后面大的就一定会冒泡到后面，那么最后一次交换下标为j是不成立的，因为这会比j大。<br>这个时候比较次数n-i-1可以用lastExchangeIndex代替</p>
+<p>2。每一轮冒泡记下是否有元素交换，如果没有则可以证明所有的元素已经是有序的，这个时候直接终止外层循环</p>
+<p>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSortTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ints = &#123;<span class="number">45</span>, <span class="number">67</span>, <span class="number">32</span>, <span class="number">90</span>, <span class="number">59</span>, <span class="number">12</span>, <span class="number">70</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> n = ints.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sortBoard = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> lastExchangeIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">boolean</span> isSorted = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; sortBoard; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (ints[j] &gt; ints[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = ints[j];</span><br><span class="line">                    ints[j] = ints[j + <span class="number">1</span>];</span><br><span class="line">                    ints[j + <span class="number">1</span>] = temp;</span><br><span class="line">                    isSorted = <span class="keyword">false</span>;</span><br><span class="line">                    lastExchangeIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isSorted) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            sortBoard = lastExchangeIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Arrays.toString(ints));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -937,7 +1098,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -959,7 +1120,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1125,13 +1286,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
 
