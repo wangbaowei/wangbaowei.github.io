@@ -1214,6 +1214,173 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2017/08/16/Java8 Optional剖析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="争夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="争夕的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/16/Java8 Optional剖析/" itemprop="url">Java8 Optional剖析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T10:05:55+08:00">
+                2017-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/JDK/" itemprop="url" rel="index">
+                    <span itemprop="name">JDK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Optional存在的意义"><a href="#Optional存在的意义" class="headerlink" title="Optional存在的意义"></a>Optional存在的意义</h2><p>在java8出现之前，通常在调用一个对象的方法的时候，难免会判断对象是否为Null，只有不为null才敢去调用对象的方法，这是一种安全措施，如果不注重这个null的情况，会常常出现NullPointException。相信java程序员对这个异常并不陌生。而java8出现之后使用到了Optional这个接口，它用一种更优雅的方式来处理这种问题，并且使得程序可读性更高。</p>
+<h2 id="of"><a href="#of" class="headerlink" title="of"></a>of</h2><p>为非null的值创建一个Optional。<br>通过Optional的静态方法of来创建Optional实例。注意：传入的参数不能为null。如果传入参数为null，则抛出NullPointerException 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOf</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; helloWorld = Optional.of(<span class="string">"Hello World"</span>);</span><br><span class="line">    Optional&lt;String&gt; nullOptional = Optional.of(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ofNullable"><a href="#ofNullable" class="headerlink" title="ofNullable"></a>ofNullable</h2><p>为指定的值创建一个Optional，如果指定的值为null，则返回一个空的Optional。<br>ofNullable与of唯一的区别是可以接受null。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOfNullable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; nullOptional = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="isPresent"><a href="#isPresent" class="headerlink" title="isPresent"></a>isPresent</h2><p>如果值存在返回true，否则返回false。以此可用来判断optional实例所封装的对象是否为null。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIsPresent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">    System.out.println(hello.isPresent());</span><br><span class="line">    Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">    System.out.println(nullHello.isPresent());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ifPresent"><a href="#ifPresent" class="headerlink" title="ifPresent"></a>ifPresent</h2><p>如果Optional实例有值则为其调用consumer，否则不做处理。</p>
+<p>这个方法让我们可以以此替代原来的判空语句，在非空的情况下做某些事情，不再显示用到if语句。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIfPresent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">    hello.ifPresent(value -&gt; System.out.println(<span class="string">"present!"</span>));</span><br><span class="line">    Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">    nullHello.ifPresent(value -&gt; System.out.println(<span class="string">"present too?"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="orElse"><a href="#orElse" class="headerlink" title="orElse"></a>orElse</h2><p>如果有值则将其返回，否则返回指定的其它值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOrElse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">    String str1 = hello.orElse(<span class="string">"I will not be show"</span>);</span><br><span class="line">    System.out.println(str1);</span><br><span class="line">    Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">    String str2 = nullHello.orElse(<span class="string">"I am null"</span>);</span><br><span class="line">    System.out.println(str2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="orElseGet"><a href="#orElseGet" class="headerlink" title="orElseGet"></a>orElseGet</h2><p>orElseGet与orElse方法类似，区别在于orElseGet方法接受Supplier接口的实现用来生成默认值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOrElseGet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Supplier&lt;String&gt; strSupplier = () -&gt; <span class="string">"Default Str"</span>;</span><br><span class="line"></span><br><span class="line">    Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">    String str1 = hello.orElseGet(strSupplier);</span><br><span class="line">    System.out.println(str1);</span><br><span class="line"></span><br><span class="line">    Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">    String str2 = nullHello.orElseGet(strSupplier);</span><br><span class="line">    System.out.println(str2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="orElseThrow"><a href="#orElseThrow" class="headerlink" title="orElseThrow"></a>orElseThrow</h2><p>如果有值则将其返回，否则抛出supplier接口创建的异常。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOrElseThrow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">        hello.orElseThrow(Exception::<span class="keyword">new</span>);</span><br><span class="line"></span><br><span class="line">        Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">        nullHello.orElseThrow(Exception::<span class="keyword">new</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>如果有值，则对其执行调用mapping函数得到返回值。如果返回值不为null，则创建包含mapping返回值的Optional作为map方法返回值，否则返回空Optional。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">    Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">    Optional&lt;Integer&gt; integer = hello.map(value -&gt; <span class="number">1</span>);</span><br><span class="line">    Optional&lt;Integer&gt; integer1 = nullHello.map(value -&gt; <span class="number">1</span>);</span><br><span class="line">    System.out.println(integer.isPresent());</span><br><span class="line">    System.out.println(integer1.isPresent());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap"></a>flatMap</h2><p>如果有值，为其执行mapping函数返回Optional类型返回值，否则返回空Optional。flatMap与map类似，区别在于flatMap中的mapper返回值必须是Optional。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFlatMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;String&gt; hello = Optional.ofNullable(<span class="string">"Hello World"</span>);</span><br><span class="line">    hello.flatMap(value -&gt; Optional.of(value + <span class="string">" boy"</span>));</span><br><span class="line">    String str1 = hello.orElse(<span class="string">"no value"</span>);</span><br><span class="line">    System.out.println(str1);</span><br><span class="line"></span><br><span class="line">    Optional&lt;String&gt; nullHello = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line">    nullHello.flatMap(value -&gt; Optional.of(value + <span class="string">" boy"</span>));</span><br><span class="line">    String str2 = nullHello.orElse(<span class="string">"no value"</span>);</span><br><span class="line">    System.out.println(str2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>filter个方法通过传入限定条件对Optional实例的值进行过滤。如果有值并且满足断言条件返回包含该值的Optional，否则返回空Optional。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Optional&lt;Integer&gt; integer = Optional.of(<span class="number">4</span>);</span><br><span class="line">    integer.filter(v -&gt; v &gt; <span class="number">3</span>).ifPresent(v -&gt; System.out.println(v + <span class="string">" &gt; 3"</span>));</span><br><span class="line">    System.out.println(integer.orElse(<span class="number">0</span>));;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1260,7 +1427,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1282,7 +1449,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
