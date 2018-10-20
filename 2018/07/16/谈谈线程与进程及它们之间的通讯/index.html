@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,线程,进程," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签云">
-<meta property="og:url" content="https://wangbaowei.github.io/tags/index.html">
+<meta name="description" content="本文主要聊聊线程与进程以及它们之间的通讯。线程与进程的概念我相信我们每个开发者都常常听到，但是我们是否真正理解了它们? 如何应用它们来实现一个并发程序的通讯，如何利用它们合理利用系统资源，都关乎我们是否能实现一个好的应用程序。  本文主要是在于温故而知新，主要是用来梳理线程进程的知识。 进程是具有一定独立功能的程序，相对操作系统来说，操作系统分配资源给进程，所以进程作为系统资源分配和调度的基本单">
+<meta name="keywords" content="Java,线程,进程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈线程与进程及它们之间的通讯">
+<meta property="og:url" content="https://wangbaowei.github.io/2018/07/16/谈谈线程与进程及它们之间的通讯/index.html">
 <meta property="og:site_name" content="争夕的个人网站">
+<meta property="og:description" content="本文主要聊聊线程与进程以及它们之间的通讯。线程与进程的概念我相信我们每个开发者都常常听到，但是我们是否真正理解了它们? 如何应用它们来实现一个并发程序的通讯，如何利用它们合理利用系统资源，都关乎我们是否能实现一个好的应用程序。  本文主要是在于温故而知新，主要是用来梳理线程进程的知识。 进程是具有一定独立功能的程序，相对操作系统来说，操作系统分配资源给进程，所以进程作为系统资源分配和调度的基本单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T05:12:40.063Z">
+<meta property="og:updated_time" content="2018-10-20T08:57:50.153Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签云">
+<meta name="twitter:title" content="谈谈线程与进程及它们之间的通讯">
+<meta name="twitter:description" content="本文主要聊聊线程与进程以及它们之间的通讯。线程与进程的概念我相信我们每个开发者都常常听到，但是我们是否真正理解了它们? 如何应用它们来实现一个并发程序的通讯，如何利用它们合理利用系统资源，都关乎我们是否能实现一个好的应用程序。  本文主要是在于温故而知新，主要是用来梳理线程进程的知识。 进程是具有一定独立功能的程序，相对操作系统来说，操作系统分配资源给进程，所以进程作为系统资源分配和调度的基本单">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://wangbaowei.github.io/tags/"/>
+  <link rel="canonical" href="https://wangbaowei.github.io/2018/07/16/谈谈线程与进程及它们之间的通讯/"/>
 
 
 
 
 
-  <title>标签云 | 争夕的个人网站</title>
+  <title>谈谈线程与进程及它们之间的通讯 | 争夕的个人网站</title>
   
 
 
@@ -247,40 +251,202 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2018/07/16/谈谈线程与进程及它们之间的通讯/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="争夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="争夕的个人网站">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签云</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 15 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/CAS/" style="font-size: 12px; color: #ccc">CAS</a> <a href="/tags/JDK兼容/" style="font-size: 12px; color: #ccc">JDK兼容</a> <a href="/tags/Java/" style="font-size: 30px; color: #111">Java</a> <a href="/tags/Java8/" style="font-size: 12px; color: #ccc">Java8</a> <a href="/tags/Mybatis/" style="font-size: 12px; color: #ccc">Mybatis</a> <a href="/tags/Optional/" style="font-size: 12px; color: #ccc">Optional</a> <a href="/tags/SpringBoot/" style="font-size: 21px; color: #6f6f6f">SpringBoot</a> <a href="/tags/SpringMvc/" style="font-size: 12px; color: #ccc">SpringMvc</a> <a href="/tags/Velocity/" style="font-size: 12px; color: #ccc">Velocity</a> <a href="/tags/major-minor/" style="font-size: 12px; color: #ccc">major.minor</a> <a href="/tags/冒泡排序/" style="font-size: 12px; color: #ccc">冒泡排序</a> <a href="/tags/向下兼容/" style="font-size: 12px; color: #ccc">向下兼容</a> <a href="/tags/线程/" style="font-size: 12px; color: #ccc">线程</a> <a href="/tags/自动配置/" style="font-size: 12px; color: #ccc">自动配置</a> <a href="/tags/进程/" style="font-size: 12px; color: #ccc">进程</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">谈谈线程与进程及它们之间的通讯</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T21:52:46+08:00">
+                2018-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/JDK/" itemprop="url" rel="index">
+                    <span itemprop="name">JDK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <blockquote>
+<p><strong>本文主要聊聊线程与进程以及它们之间的通讯。线程与进程的概念我相信我们每个开发者都常常听到，但是我们是否真正理解了它们? 如何应用它们来实现一个并发程序的通讯，如何利用它们合理利用系统资源，都关乎我们是否能实现一个好的应用程序。</strong></p>
+</blockquote>
+<p>本文主要是在于温故而知新，主要是用来梳理线程进程的知识。</p>
+<p><strong>进程</strong><br>是具有一定独立功能的程序，相对操作系统来说，操作系统分配资源给进程，所以进程作为系统资源分配和调度的基本单位，进程是可以独 立运行的一段程序。</p>
+<p><strong>线程</strong><br>线程进程的一个实体，是CPU调度和分派的基本单位，他是比进程更小的能独立运行的基本单位。相对于进程，线程拥有系统资源比较少，而且线程的生命周期是进程这个程序来控制的。在运行时，只是暂用一些计数器、寄存器和栈 。同时一个进程至少要有一个主线程。所以真正执行任务的是线程。</p>
+<p><strong>通讯</strong><br>线程、进程都具有并发性。在并发运行时如何来通讯？如何保证相关逻辑的同步运行？<br>今天我们只道出通常有以下几种方式？</p>
+<ul>
+<li><p>1、共享变量</p>
+</li>
+<li><p>2、wait/notify机制</p>
+</li>
+<li><p>3、Lock/Condition机制</p>
+</li>
+<li><p>4、管道</p>
+<p>后续博文再逐步分析每种方式的具体实现</p>
+</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/线程/" rel="tag"># 线程</a>
+          
+            <a href="/tags/进程/" rel="tag"># 进程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/16/Java8 Optional剖析/" rel="next" title="Java8 Optional剖析">
+                <i class="fa fa-chevron-left"></i> Java8 Optional剖析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/Java_CAS/" rel="prev" title="Java CAS初识">
+                Java CAS初识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -289,6 +455,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDM5MC8xNjkxNw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -547,6 +722,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

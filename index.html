@@ -1227,6 +1227,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2018/07/16/谈谈线程与进程及它们之间的通讯/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="争夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="争夕的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/16/谈谈线程与进程及它们之间的通讯/" itemprop="url">谈谈线程与进程及它们之间的通讯</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T21:52:46+08:00">
+                2018-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/JDK/" itemprop="url" rel="index">
+                    <span itemprop="name">JDK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><strong>本文主要聊聊线程与进程以及它们之间的通讯。线程与进程的概念我相信我们每个开发者都常常听到，但是我们是否真正理解了它们? 如何应用它们来实现一个并发程序的通讯，如何利用它们合理利用系统资源，都关乎我们是否能实现一个好的应用程序。</strong></p>
+</blockquote>
+<p>本文主要是在于温故而知新，主要是用来梳理线程进程的知识。</p>
+<p><strong>进程</strong><br>是具有一定独立功能的程序，相对操作系统来说，操作系统分配资源给进程，所以进程作为系统资源分配和调度的基本单位，进程是可以独 立运行的一段程序。</p>
+<p><strong>线程</strong><br>线程进程的一个实体，是CPU调度和分派的基本单位，他是比进程更小的能独立运行的基本单位。相对于进程，线程拥有系统资源比较少，而且线程的生命周期是进程这个程序来控制的。在运行时，只是暂用一些计数器、寄存器和栈 。同时一个进程至少要有一个主线程。所以真正执行任务的是线程。</p>
+<p><strong>通讯</strong><br>线程、进程都具有并发性。在并发运行时如何来通讯？如何保证相关逻辑的同步运行？<br>今天我们只道出通常有以下几种方式？</p>
+<ul>
+<li><p>1、共享变量</p>
+</li>
+<li><p>2、wait/notify机制</p>
+</li>
+<li><p>3、Lock/Condition机制</p>
+</li>
+<li><p>4、管道</p>
+<p>后续博文再逐步分析每种方式的具体实现</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangbaowei.github.io/2017/08/16/Java8 Optional剖析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1427,7 +1597,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1449,7 +1619,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
